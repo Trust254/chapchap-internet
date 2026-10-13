@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jisot Internet Free</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #061a14; color: #f3f4f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .card { background-color: #0d281f; border: 1px solid #10b981; border-radius: 12px; padding: 30px; max-width: 400px; width: 100%; text-align: center; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15); }
+        h1 { color: #f59e0b; font-size: 1.8rem; margin-bottom: 8px; }
+        p { font-size: 0.9rem; color: #d1d5db; margin-bottom: 20px; }
+        .sponsor-box { background-color: #11382b; border: 2px dashed #f59e0b; border-radius: 8px; padding: 20px; margin-bottom: 20px; color: #fef08a; }
+        .input-group { margin-bottom: 15px; text-align: left; }
+        label { display: block; font-size: 0.85rem; color: #10b981; margin-bottom: 5px; font-weight: bold; }
+        input { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #10b981; background-color: #061a14; color: white; font-size: 1rem; }
+        input:focus { outline: none; border-color: #f59e0b; }
+        .btn { background: linear-gradient(135deg, #f59e0b, #d97706); color: #061a14; border: none; padding: 12px; font-size: 1rem; border-radius: 6px; cursor: pointer; width: 100%; font-weight: bold; transition: opacity 0.2s; }
+        .btn:hover { opacity: 0.9; }
+        #message { margin-top: 15px; font-size: 0.9rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Jisot Internet</h1>
+        <p>Get your daily free internet access sponsored by our partners.</p>
+
+        <div class="sponsor-box">
+            <h3>📢 Sponsor Update</h3>
+            <p style="margin-top: 5px; font-size: 0.85rem; color: #f3f4f6;">Support local creators to keep free connection running in Kenya!</p>
+        </div>
+
+        <form id="claim-form">
+            <div class="input-group">
+                <label for="phone">Phone Number (M-Pesa / Contact)</label>
+                <input type="text" id="phone" placeholder="07XXXXXXXX" required>
+            </div>
+            <button type="submit" class="btn">Claim Free Internet</button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('claim-form');
+        const messageDiv = document.getElementById('message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const phoneNumber = document.getElementById('phone').value;
+
+            messageDiv.style.color = "#f59e0b";
+            messageDiv.textContent = "Processing request...";
+
+            try {
+                const response = await fetch('/api/claim-access', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phoneNumber })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    messageDiv.style.color = "#10b981";
+                    messageDiv.textContent = result.message;
+                    form.reset();
+                } else {
+                    messageDiv.style.color = "#ef4444";
+                    messageDiv.textContent = result.message || "Failed to claim access.";
+                }
+            } catch (err) {
+                messageDiv.style.color = "#ef4444";
+                messageDiv.textContent = "Network error. Please try again.";
+            }
+        });
+    </script>
+</body>
+</html>
