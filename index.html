@@ -1,291 +1,82 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#06291e">
-  <title>Jisot Internet - Free Access</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      padding: 24px 14px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #03180f;
-      color: #f5f7f5;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 620px;
-      padding: 38px 28px;
-      text-align: center;
-      background: #0b3024;
-      border: 2px solid #20b889;
-      border-radius: 28px;
-      box-shadow: 0 0 35px rgba(20, 185, 130, 0.12);
-    }
-
-    h1 {
-      margin: 8px 0 22px;
-      color: #ffa500;
-      font-size: clamp(34px, 8vw, 48px);
-    }
-
-    .intro {
-      margin: 0 0 38px;
-      color: #d2ded8;
-      font-size: 21px;
-      line-height: 1.5;
-    }
-
-    .sponsor {
-      margin-bottom: 42px;
-      padding: 28px 18px;
-      border: 3px dashed #f5a623;
-      border-radius: 17px;
-    }
-
-    .sponsor h2 {
-      margin: 10px 0 20px;
-      font-size: 27px;
-    }
-
-    .sponsor p {
-      margin: 0;
-      color: #d5e0da;
-      font-size: 19px;
-      line-height: 1.6;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 16px;
-      color: #20c997;
-      text-align: left;
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      min-height: 65px;
-      padding: 16px;
-      border: 2px solid #27c99b;
-      border-radius: 12px;
-      background: #f0f4ff;
-      color: #18221e;
-      font-size: 20px;
-      outline-offset: 3px;
-    }
-
-    button {
-      width: 100%;
-      min-height: 68px;
-      margin-top: 26px;
-      padding: 16px;
-      border: none;
-      border-radius: 12px;
-      background: #ffa500;
-      color: #172117;
-      font-size: 21px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:disabled {
-      opacity: 0.65;
-      cursor: wait;
-    }
-
-    #message {
-      display: none;
-      margin: 24px 0 0;
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 17px;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-    }
-
-    #message.success {
-      display: block;
-      background: #103f2d;
-      color: #5ff0b7;
-    }
-
-    #message.error {
-      display: block;
-      background: #421f24;
-      color: #ff9299;
-    }
-
-    #message.info {
-      display: block;
-      background: #173b43;
-      color: #a9eaff;
-    }
-
-    .footer {
-      margin-top: 28px;
-      color: #9eb8ac;
-      font-size: 13px;
-    }
-
-    @media (max-width: 400px) {
-      .container {
-        padding: 30px 19px;
-      }
-
-      .sponsor {
-        padding: 22px 13px;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#061018">
+<title>Free-Net VPN — Connect • Browse • Enjoy</title>
+<style>
+:root{--bg:#050d14;--panel:#101b26;--panel2:#0c1721;--line:#2b3b49;--green:#00e66b;--green2:#00b956;--muted:#a9b7c8;--blue:#1677f2;--purple:#8755ef;--yellow:#ffbd19}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% 15%,#09231d 0,#06121a 34%,#03090e 75%);color:#f7fafc;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh;padding-bottom:88px}
+button,input,select{font:inherit}button{cursor:pointer}.app{width:min(100%,760px);margin:auto;padding:16px 18px 24px}.top{display:flex;align-items:center;gap:12px;padding:8px 2px 20px}.logo{width:62px;height:66px;flex:none}.brand{min-width:0;flex:1}.brand h1{font-size:clamp(22px,5vw,30px);margin:0;font-weight:850;letter-spacing:-.8px}.brand h1 span{color:var(--green)}.brand p{margin:3px 0 0;color:#d3dce5;font-size:14px;letter-spacing:.2px}.iconbtn{width:42px;height:42px;border:0;background:transparent;color:#eef4f8;font-size:23px;position:relative}.dot{position:absolute;right:1px;top:0;background:#e73542;color:white;border-radius:20px;font-size:10px;padding:3px 6px}.demo{display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #87621f;background:#30250d;color:#ffd66a;border-radius:10px;padding:9px 12px;font-size:12px;font-weight:750;margin:0 0 14px}.demo b{width:7px;height:7px;background:#ffc443;border-radius:50%}
+.hero{position:relative;overflow:hidden;text-align:center;padding:20px 8px 18px;background:radial-gradient(ellipse at center,#073c29a8 0,transparent 65%)}.world{position:absolute;inset:0;opacity:.2;background-image:radial-gradient(#00d76b 1px,transparent 1.5px);background-size:8px 8px;mask-image:radial-gradient(ellipse at center,black 10%,transparent 72%);pointer-events:none}.orb{width:260px;height:260px;max-width:72vw;max-height:72vw;border:8px solid var(--green);border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px #00f47780,inset 0 0 25px #00e66b20;position:relative;background:radial-gradient(circle,#061b18 0,#041014 70%)}.orb:before{content:"";position:absolute;inset:7px;border:1px solid #00e66b55;border-radius:50%}.shield{width:68px;height:78px;margin:0 auto 8px;background:linear-gradient(140deg,#00ff7a,#00b957);clip-path:polygon(50% 0,94% 15%,90% 65%,50% 100%,10% 65%,6% 15%);display:grid;place-items:center;color:white;font-size:43px;font-weight:900;text-shadow:0 2px 5px #007d3b}.status{font-size:25px;font-weight:800}.timer{font-size:22px;color:var(--green);font-weight:800;margin-top:7px;font-variant-numeric:tabular-nums}.connect{width:min(360px,90%);height:62px;border:0;border-radius:40px;background:linear-gradient(100deg,#00d958,#00b94e);color:white;font-size:20px;font-weight:850;box-shadow:0 7px 22px #00c95c38}.connect:active,.tile:active{transform:scale(.985)}.connect.off{background:linear-gradient(100deg,#00d958,#00b94e)}.connect.on{background:linear-gradient(100deg,#d44747,#a82232)}
+.panel{background:linear-gradient(135deg,#121e2a,#0c1721);border:1px solid #344453;border-radius:22px;margin:13px 0;padding:17px 18px;box-shadow:0 8px 25px #0002}.server{display:flex;align-items:center;gap:13px}.flag{font-size:31px;width:54px;height:54px;display:grid;place-items:center;border:1px solid #40515e;border-radius:12px;background:#07131b}.serverinfo{flex:1;min-width:0}.serverinfo strong{display:block;font-size:17px}.serverinfo span{display:block;color:#bdc8d7;font-size:14px;margin-top:3px}.quality{border-left:1px solid #526173;padding-left:15px;color:var(--green);font-size:13px;font-weight:800;white-space:nowrap}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{display:flex;align-items:center;gap:12px;min-width:0}.metric+.metric{border-left:1px solid #40505f;padding-left:14px}.bubble{width:54px;height:54px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:25px;font-weight:900;background:#126bf0}.bubble.purple{background:#35205f;color:#b58bff;border-radius:15px}.metric small{display:block;color:#f0f4f8;font-size:13px}.metric strong{display:block;color:var(--green);font-size:25px;line-height:1.25;white-space:nowrap}.metric .date{font-size:16px;color:white}.metric em{font-style:normal;color:#bdc8d7;font-size:12px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:13px 0}.tile{min-height:145px;padding:15px 7px;border-radius:22px;background:linear-gradient(145deg,#131f2b,#0b151f);border:1px solid #344453;color:#f7fafc;text-align:center}.tile .ico{font-size:32px;display:block;margin-bottom:8px}.tile strong{display:block;font-size:15px}.tile small{display:block;color:#b9c5d4;font-size:12px;margin-top:5px;line-height:1.35}.purpletxt{color:#9371ff}.greentxt{color:var(--green)}.yellowtxt{color:var(--yellow)}
+.banner{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid #00a94c;border-radius:20px;background:linear-gradient(110deg,#003d22,#061d15 65%,#004b29);margin:18px 0}.tower{font-size:42px;flex:none}.banner strong{display:block;color:#4dff62;font-size:16px}.banner p{margin:5px 0 0;font-size:13px;line-height:1.35;color:#e0e9e4}
+.nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:#111c27f5;border-top:1px solid #3a4a5a;backdrop-filter:blur(14px);padding:8px max(10px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:repeat(4,1fr)}.nav button{background:none;border:0;color:#aebbd0;font-size:12px;padding:3px 0;display:flex;flex-direction:column;align-items:center;gap:4px}.nav .ni{font-size:24px}.nav button.active{color:var(--green);font-weight:800}.nav button.active:after{content:"";height:3px;background:var(--green);width:70%;border-radius:3px;margin-top:4px}
+.view{display:none}.view.active{display:block}.viewhead{font-size:23px;margin:8px 0 5px}.sub{color:var(--muted);font-size:14px;margin:0 0 17px}.rowline{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #293846}.rowline:last-child{border:0}.muted{color:var(--muted)}.action{border:1px solid #00c95c;background:#063b24;color:#caffdf;border-radius:12px;padding:12px 15px;font-weight:750}.action.primary{background:linear-gradient(100deg,#00d958,#00b94e);color:white;border:0}.action:disabled{opacity:.5;cursor:not-allowed}.field{width:100%;padding:13px;border-radius:11px;border:1px solid #415465;background:#08131d;color:white;margin:7px 0 14px}.notice{border:1px solid #725b2a;background:#2a210f;color:#f9dc91;padding:12px;border-radius:12px;font-size:13px;line-height:1.45;margin:12px 0}.success{border-color:#176c45;background:#092c1c;color:#a7ffd0}.package{border:1px solid #344453;border-radius:16px;padding:15px;margin:10px 0;background:#0c1822}.package strong{font-size:18px}.package .price{float:right;color:var(--green);font-weight:850}.package p{color:var(--muted);font-size:13px;margin:5px 0 12px}.modalback{position:fixed;inset:0;background:#000b;display:none;align-items:flex-end;justify-content:center;z-index:40;padding:14px}.modalback.show{display:flex}.modal{width:min(100%,520px);background:#101c28;border:1px solid #415263;border-radius:22px;padding:20px;max-height:85vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;align-items:center}.modalhead h3{margin:0}.close{background:none;border:0;color:white;font-size:25px}.pill{font-size:11px;color:#ffd66a;border:1px solid #80652a;border-radius:20px;padding:4px 8px}.footnote{text-align:center;color:#788a9b;font-size:11px;margin:18px 0}
+@media(min-width:650px){.app{padding-top:22px}.orb{width:285px;height:285px}.tiles{gap:14px}.tile{min-height:155px}.panel{padding:20px 22px}}
+</style>
 </head>
-
 <body>
-  <main class="container">
-    <h1>Jisot Internet</h1>
+<main class="app">
+<header class="top">
+<svg class="logo" viewBox="0 0 80 86" aria-hidden="true"><path d="M40 3 72 14v26c0 22-13 35-32 43C21 75 8 62 8 40V14Z" fill="#06291d" stroke="#00ed70" stroke-width="6"/><path d="M27 39v-8a13 13 0 0 1 26 0v8" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/><rect x="21" y="37" width="38" height="29" rx="7" fill="#f7fafc"/><circle cx="40" cy="50" r="4" fill="#0a3724"/><path d="M40 53v6" stroke="#0a3724" stroke-width="3" stroke-linecap="round"/></svg>
+<div class="brand"><h1>Free-Net <span>VPN</span></h1><p>Connect • Browse • Enjoy</p></div>
+<button class="iconbtn" aria-label="Notifications" onclick="notifyDemo()">♟<span class="dot">3</span></button>
+<button class="iconbtn" aria-label="Settings" onclick="openSettings()">⚙</button>
+</header>
+<div class="demo"><b></b> PREVIEW MODE · Demo data only — no live VPN tunnel</div>
 
-    <p class="intro">
-      Get your daily free internet access sponsored by our partners.
-    </p>
+<section id="home" class="view active">
+<div class="hero"><div class="world"></div><div class="orb"><div><div class="shield" id="shield">✓</div><div class="status" id="connectionStatus">Not Connected</div><div class="timer" id="timer">00:00:00</div></div></div><button class="connect" id="connectBtn" onclick="toggleConnection()">⏻ &nbsp; Connect</button></div>
+<div class="panel server"><div class="flag">🇰🇪</div><div class="serverinfo"><strong id="serverName">Server: Kenya-1</strong><span id="protocolName">Protocol: WireGuard / OpenVPN ready</span></div><div class="quality">▮▮▮▮ <span>Demo</span></div></div>
+<div class="panel metrics"><div class="metric"><div class="bubble">↔</div><div><small>Sample allowance</small><strong>1.25 GB</strong><em>Preview only</em></div></div><div class="metric"><div class="bubble purple">▦</div><div><small>Valid Until</small><strong class="date">Not activated</strong><em>Demo account</em></div></div></div>
+<div class="tiles">
+<button class="tile" onclick="showView('config')"><span class="ico purpletxt">⇩</span><strong>Get Config</strong><small>VPN client setup</small></button>
+<button class="tile" onclick="showView('packages')"><span class="ico greentxt">🛒</span><strong>Buy Package</strong><small>Payment setup preview</small></button>
+<button class="tile" onclick="showView('account')"><span class="ico yellowtxt">▤</span><strong>My Account</strong><small>View details</small></button>
+</div>
+<div class="banner"><div class="tower">📡</div><div><strong>Secure internet. Clear pricing.</strong><p>Use a valid data package or an authorized sponsored-data plan. No carrier billing bypass.</p></div></div>
+</section>
 
-    <section class="sponsor">
-      <h2>📢 Sponsor Update</h2>
-      <p>
-        Support local creators to help keep free connection
-        running in Kenya!
-      </p>
-    </section>
+<section id="usage" class="view"><h2 class="viewhead">Usage Statistics</h2><p class="sub">Your data and connection history will appear here after activation.</p><div class="panel"><div class="rowline"><span class="muted">Allowance (sample)</span><b>1.25 GB</b></div><div class="rowline"><span class="muted">Used</span><b>0 MB</b></div><div class="rowline"><span class="muted">Remaining</span><b class="greentxt">1.25 GB</b></div><div class="rowline"><span class="muted">Session time</span><b id="usageTimer">00:00:00</b></div><div class="notice">Sample figures are for interface testing only. Live usage requires an authenticated VPN gateway and data-provider integration.</div></div></section>
 
-    <form id="claimForm">
-      <label for="phoneNumber">Phone Number (M-Pesa / Contact)</label>
+<section id="config" class="view"><h2 class="viewhead">VPN Configuration</h2><p class="sub">Choose a supported VPN client. Real configuration files are issued only after the VPN gateway and authorized service are connected.</p><div class="panel"><div class="rowline"><b>HA Tunnel Plus</b><span class="pill">Integration pending</span></div><p class="muted">Importable account profiles will be available when the VPN server is configured.</p><button class="action" onclick="showNotice('HA Tunnel Plus profiles are not available in this preview. No carrier-bypass configuration is generated.','configNotice')">View setup status</button><div id="configNotice"></div></div><div class="panel"><div class="rowline"><b>HTTP Injector</b><span class="pill">Integration pending</span></div><p class="muted">Client setup and authorized proxy profiles will be added after server provisioning.</p><button class="action" onclick="showNotice('HTTP Injector profiles are not available in this preview.','configNotice2')">View setup status</button><div id="configNotice2"></div></div><div class="notice">A VPN encrypts/routes traffic; it does not create free mobile data or remove Safaricom charges by itself.</div></section>
 
-      <input
-        type="tel"
-        id="phoneNumber"
-        name="phoneNumber"
-        placeholder="e.g. 07XXXXXXXX"
-        autocomplete="tel"
-        inputmode="tel"
-        maxlength="20"
-        required
-      >
+<section id="packages" class="view"><h2 class="viewhead">Choose a Package</h2><p class="sub">Preview package options. Payments are not connected yet.</p>
+<div class="package"><span class="price">KSh 50</span><strong>Starter</strong><p>500 MB allowance · 1 day</p><button class="action" onclick="checkout('Starter','KSh 50')">Choose package</button></div>
+<div class="package"><span class="price">KSh 100</span><strong>Daily</strong><p>1.5 GB allowance · 1 day</p><button class="action" onclick="checkout('Daily','KSh 100')">Choose package</button></div>
+<div class="package"><span class="price">KSh 250</span><strong>Weekly</strong><p>5 GB allowance · 7 days</p><button class="action" onclick="checkout('Weekly','KSh 250')">Choose package</button></div>
+<div class="notice">M-Pesa Daraja credentials and a Safaricom-approved data supply agreement are required before live payments or data activation.</div></section>
 
-      <button type="submit" id="claimButton">
-        Claim Free Internet
-      </button>
-    </form>
+<section id="account" class="view"><h2 class="viewhead">My Account</h2><p class="sub">Preview account profile</p><div class="panel"><div class="rowline"><span class="muted">Account status</span><b class="yellowtxt">Demo</b></div><div class="rowline"><span class="muted">Phone number</span><b>Not linked</b></div><div class="rowline"><span class="muted">Plan</span><b>Preview account</b></div><div class="rowline"><span class="muted">Renewal</span><b>Not scheduled</b></div><button class="action" style="margin-top:14px" onclick="openSettings()">Account settings</button></div></section>
 
-    <div id="message" role="status" aria-live="polite"></div>
+<section id="help" class="view"><h2 class="viewhead">Help & Support</h2><p class="sub">Common questions and service status</p><div class="panel"><b>Does this preview provide internet?</b><p class="muted">No. It demonstrates the app interface. A working VPN server and authorized data plan are still required.</p><hr style="border-color:#2b3b49"><b>Can I use HA Tunnel Plus?</b><p class="muted">The app is designed to support it once approved server profiles are ready.</p><hr style="border-color:#2b3b49"><b>How do I get help?</b><p class="muted">Support contact details will be added before launch.</p><button class="action" onclick="showNotice('Support messaging will be enabled before public launch.','helpNotice')">Contact support</button><div id="helpNotice"></div></div></section>
 
-    <p class="footer">
-      Jisot Internet · Free access sponsored by our partners
-    </p>
-  </main>
-
-  <script>
-    // Your live Render backend URL.
-    const API_URL = 'https://jisot-internet-free.onrender.com';
-
-    const form = document.getElementById('claimForm');
-    const phoneInput = document.getElementById('phoneNumber');
-    const button = document.getElementById('claimButton');
-    const message = document.getElementById('message');
-
-    function showMessage(text, type) {
-      message.textContent = text;
-      message.className = type;
-    }
-
-    form.addEventListener('submit', async function (event) {
-      event.preventDefault();
-
-      const phoneNumber = phoneInput.value.trim();
-
-      if (!phoneNumber) {
-        showMessage('Please enter your phone number.', 'error');
-        return;
-      }
-
-      button.disabled = true;
-      button.textContent = 'Connecting...';
-
-      showMessage(
-        'Connecting to Jisot Internet. The first request may take a little longer.',
-        'info'
-      );
-
-      try {
-        const response = await fetch(
-          `${API_URL}/api/claim-access`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ phoneNumber })
-          }
-        );
-
-        let data;
-
-        try {
-          data = await response.json();
-        } catch {
-          throw new Error(
-            `The server returned an unexpected response (HTTP ${response.status}).`
-          );
-        }
-
-        if (!response.ok) {
-          throw new Error(
-            data.message || `Request failed (HTTP ${response.status}).`
-          );
-        }
-
-        if (data.success) {
-          showMessage(
-            data.message || 'Your request was received successfully.',
-            'success'
-          );
-          form.reset();
-        } else {
-          showMessage(
-            data.message || 'Your request could not be completed.',
-            'error'
-          );
-        }
-      } catch (error) {
-        console.error('Jisot claim request failed:', error);
-
-        if (error instanceof TypeError) {
-          showMessage(
-            'Could not reach the server. Check the Render CORS settings and try again. If the server is waking up, wait a minute and retry.',
-            'error'
-          );
-        } else {
-          showMessage(
-            error.message || 'Something went wrong. Please try again.',
-            'error'
-          );
-        }
-      } finally {
-        button.disabled = false;
-        button.textContent = 'Claim Free Internet';
-      }
-    });
-  </script>
-</body>
-</html>
+<div class="footnote">Free-Net VPN · Preview build · No real payment or VPN session is created</div>
+</main>
+<nav class="nav" aria-label="Main navigation">
+<button class="active" data-view="home" onclick="showView('home')"><span class="ni">⌂</span>Home</button>
+<button data-view="usage" onclick="showView('usage')"><span class="ni">▥</span>Usage</button>
+<button data-view="help" onclick="showView('help')"><span class="ni">ⓘ</span>Help</button>
+<button data-view="help" onclick="showView('help')"><span class="ni">☏</span>Support</button>
+</nav>
+<div class="modalback" id="modalBack" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modalhead"><h3 id="modalTitle">Free-Net VPN</h3><button class="close" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+<script>
+let connected=false,seconds=0,tick=null;
+const $=id=>document.getElementById(id);
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.nav button').forEach((b,i)=>b.classList.toggle('active',b.dataset.view===id && (id!=='help'||i>=2)));window.scrollTo({top:0,behavior:'smooth'});}
+function fmt(n){return [Math.floor(n/3600),Math.floor(n%3600/60),n%60].map(x=>String(x).padStart(2,'0')).join(':')}
+function toggleConnection(){if(!connected){openModal('Demo connection', '<div class="notice">This is a UI simulation only. It will not establish a VPN tunnel or provide internet access.</div><p class="muted">Would you like to preview the connected dashboard state?</p><button class="action primary" onclick="startDemoConnection()">Preview connected state</button>');}else{stopDemoConnection();}}
+function startDemoConnection(){closeModal();connected=true;$('connectionStatus').textContent='Demo Connected';$('shield').textContent='✓';$('connectBtn').textContent='⏻  Disconnect';$('connectBtn').classList.add('on');$('protocolName').textContent='Protocol: Demo only · No tunnel';tick=setInterval(()=>{seconds++;$('timer').textContent=fmt(seconds);$('usageTimer').textContent=fmt(seconds)},1000);}
+function stopDemoConnection(){connected=false;clearInterval(tick);$('connectionStatus').textContent='Not Connected';$('timer').textContent='00:00:00';$('usageTimer').textContent='00:00:00';$('connectBtn').textContent='⏻  Connect';$('connectBtn').classList.remove('on');$('protocolName').textContent='Protocol: WireGuard / OpenVPN ready';seconds=0;}
+function openModal(title,body){$('modalTitle').textContent=title;$('modalBody').innerHTML=body;$('modalBack').classList.add('show')}
+function closeModal(){$('modalBack').classList.remove('show')}
+function checkout(plan,price){openModal('M-Pesa checkout preview', '<div class="notice">Payment gateway is not connected. No money will be requested or charged.</div><p><b>'+plan+' package</b> · '+price+'</p><label for="phone">M-Pesa phone number</label><input class="field" id="phone" placeholder="07XXXXXXXX" inputmode="tel"><button class="action primary" onclick="showDemoPayment()">Preview checkout</button><div id="payResult"></div>')}
+function showDemoPayment(){const p=$('phone').value.trim();if(!p){$('payResult').innerHTML='<p class="muted">Enter a sample phone number to preview the form.</p>';return}$('payResult').innerHTML='<div class="notice success">Checkout preview complete. No STK push was sent and no payment was made.</div>'}
+function showNotice(text,id){$(id).innerHTML='<div class="notice">'+text+'</div>'}
+function notifyDemo(){openModal('Notifications','<p class="muted">You are viewing the Free-Net VPN preview. No live alerts are configured.</p>')}
+function openSettings(){openModal('Settings','<p class="muted">Account security, language, and server preferences will be configured here.</p><div class="rowline"><span>App version</span><b>Preview 0.1</b></div><div class="rowline"><span>Service status</span><b class="yellowtxt">Demo mode</b></div>')}
+</script>
+</body></html>
